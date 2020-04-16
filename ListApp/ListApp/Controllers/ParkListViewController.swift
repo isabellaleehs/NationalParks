@@ -11,14 +11,16 @@ import UIKit
 class ParkListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var parks: [String] = []
+    var parks: [Park] = []
+    var parkService: ParkService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.parks = ["Death Valley", "Yosemite", "Joshua Tree", "Death Valley", "Yosemite", "Joshua Tree", "Death Valley", "Yosemite", "Joshua Tree", "Death Valley", "Yosemite", "Joshua Tree", "Death Valley", "Yosemite", "Joshua Tree", "Death Valley", "Yosemite", "Joshua Tree"]
-        
+        self.parkService = ParkService()
+        self.parks = self.parkService.getParks()
+
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
@@ -32,8 +34,13 @@ extension ParkListViewController: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "parkCell")!
-        cell.textLabel?.text = self.parks[indexPath.row]
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "parkCell") as! ParkCell
+        
+        let currentPark = self.parks[indexPath.row]
+        
+        cell.parkNameLabel.text = currentPark.name
+        cell.parkDescriptionLabel.text = currentPark.description
+        
         return cell
     }
 }

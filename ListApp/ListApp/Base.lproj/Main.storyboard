@@ -15,17 +15,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mZ0-dQ-3s0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mZ0-dQ-3s0">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="parkCell" id="8dC-TG-8x3">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="parkCell" rowHeight="90" id="8dC-TG-8x3" customClass="ParkCell" customModule="ListApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8dC-TG-8x3" id="G87-0u-P6k">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hare" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VS7-dK-ZcJ">
+                                                    <rect key="frame" x="20" y="6.5" width="75" height="76"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="Q0f-u3-mVh"/>
+                                                        <constraint firstAttribute="height" constant="75" id="Z7x-sk-n6T"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="85A-P2-Jhd">
+                                                    <rect key="frame" x="111" y="16.5" width="57" height="57.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ND8-3g-pvq" userLabel="parkName">
+                                                            <rect key="frame" x="0.0" y="0.0" width="57" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O07-Fj-Mcb" userLabel="parkDescription">
+                                                            <rect key="frame" x="0.0" y="36" width="57" height="21.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="85A-P2-Jhd" secondAttribute="trailing" constant="20" id="HfG-AB-oin"/>
+                                                <constraint firstItem="85A-P2-Jhd" firstAttribute="centerY" secondItem="G87-0u-P6k" secondAttribute="centerY" id="NGB-Od-zz3"/>
+                                                <constraint firstItem="VS7-dK-ZcJ" firstAttribute="leading" secondItem="G87-0u-P6k" secondAttribute="leading" constant="20" id="Tu7-yd-g3f"/>
+                                                <constraint firstItem="85A-P2-Jhd" firstAttribute="leading" secondItem="VS7-dK-ZcJ" secondAttribute="trailing" constant="16" id="dhz-94-sLp"/>
+                                                <constraint firstItem="VS7-dK-ZcJ" firstAttribute="centerY" secondItem="G87-0u-P6k" secondAttribute="centerY" id="e0p-Jl-9XG"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="parkDescriptionLabel" destination="O07-Fj-Mcb" id="BV2-Tc-i8G"/>
+                                            <outlet property="parkNameLabel" destination="ND8-3g-pvq" id="MHf-td-gFu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -48,4 +85,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="hare" catalog="system" width="128" height="92"/>
+    </resources>
 </document>
