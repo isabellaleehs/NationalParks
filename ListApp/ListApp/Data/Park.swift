@@ -10,12 +10,10 @@ import Foundation
 
 class Park {
     var name: String
-    var description: String
+    var country: String
     
-    init(named name: String, description: String) {
+    init(named name: String, country: String) {
         self.name = name
-        self.description = description
+        self.country = country
     }
-    
-//    Park(named: "DV")
 }

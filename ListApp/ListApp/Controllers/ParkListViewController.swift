@@ -39,7 +39,7 @@ extension ParkListViewController: UITableViewDataSource {
         let currentPark = self.parks[indexPath.row]
         
         cell.parkNameLabel.text = currentPark.name
-        cell.parkDescriptionLabel.text = currentPark.description
+        cell.parkCountryLabel.text = currentPark.country
         
         return cell
     }

@@ -42,7 +42,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O07-Fj-Mcb" userLabel="parkDescription">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O07-Fj-Mcb" userLabel="parkCountry">
                                                             <rect key="frame" x="0.0" y="36" width="57" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <nil key="textColor"/>
@@ -60,8 +60,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="parkDescriptionLabel" destination="O07-Fj-Mcb" id="BV2-Tc-i8G"/>
-                                            <outlet property="parkNameLabel" destination="ND8-3g-pvq" id="MHf-td-gFu"/>
+                                            <outlet property="parkCountryLabel" destination="O07-Fj-Mcb" id="WpP-Kh-oBl"/>
+                                            <outlet property="parkNameLabel" destination="ND8-3g-pvq" id="vQD-2Q-6JR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -77,7 +77,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="mZ0-dQ-3s0" id="U1Z-yJ-UQf"/>
+                        <outlet property="tableView" destination="mZ0-dQ-3s0" id="1UU-4X-to8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

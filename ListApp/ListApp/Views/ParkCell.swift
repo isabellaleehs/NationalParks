@@ -11,7 +11,7 @@ import UIKit
 class ParkCell: UITableViewCell {
     
     @IBOutlet weak var parkNameLabel: UILabel!
-    @IBOutlet weak var parkDescriptionLabel: UILabel!
+    @IBOutlet weak var parkCountryLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
