@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5E1558C124480458005DECD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1558C024480458005DECD4 /* AppDelegate.swift */; };
 		5E1558C324480458005DECD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1558C224480458005DECD4 /* SceneDelegate.swift */; };
-		5E1558C524480458005DECD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1558C424480458005DECD4 /* ViewController.swift */; };
+		5E1558C524480458005DECD4 /* ParkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1558C424480458005DECD4 /* ParkListViewController.swift */; };
 		5E1558C824480458005DECD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E1558C624480458005DECD4 /* Main.storyboard */; };
 		5E1558CB24480458005DECD4 /* ListApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5E1558C924480458005DECD4 /* ListApp.xcdatamodeld */; };
 		5E1558CD2448045B005DECD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E1558CC2448045B005DECD4 /* Assets.xcassets */; };
@@ -39,7 +39,7 @@
 		5E1558BD24480458005DECD4 /* ListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E1558C024480458005DECD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E1558C224480458005DECD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5E1558C424480458005DECD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5E1558C424480458005DECD4 /* ParkListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkListViewController.swift; sourceTree = "<group>"; };
 		5E1558C724480458005DECD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E1558CA24480458005DECD4 /* ListApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListApp.xcdatamodel; sourceTree = "<group>"; };
 		5E1558CC2448045B005DECD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 			children = (
 				5E1558C024480458005DECD4 /* AppDelegate.swift */,
 				5E1558C224480458005DECD4 /* SceneDelegate.swift */,
-				5E1558C424480458005DECD4 /* ViewController.swift */,
+				5E1558C424480458005DECD4 /* ParkListViewController.swift */,
 				5E1558C624480458005DECD4 /* Main.storyboard */,
 				5E1558CC2448045B005DECD4 /* Assets.xcassets */,
 				5E1558CE2448045B005DECD4 /* LaunchScreen.storyboard */,
@@ -262,7 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E1558C524480458005DECD4 /* ViewController.swift in Sources */,
+				5E1558C524480458005DECD4 /* ParkListViewController.swift in Sources */,
 				5E1558CB24480458005DECD4 /* ListApp.xcdatamodeld in Sources */,
 				5E1558C124480458005DECD4 /* AppDelegate.swift in Sources */,
 				5E1558C324480458005DECD4 /* SceneDelegate.swift in Sources */,

@@ -11,7 +11,7 @@ import UIKit
 class ParkListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var parks: [String]!
+    var parks: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,15 +41,6 @@ extension ParkListViewController: UITableViewDataSource {
 extension ParkListViewController: UITableViewDelegate {
     //MARK: Delegate
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.parks.count
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "parkCell")!
-        cell.textLabel?.text = self.parks[indexPath.row]
-        return cell
-    }
 }
     
 
