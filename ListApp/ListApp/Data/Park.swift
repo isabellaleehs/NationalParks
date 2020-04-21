@@ -11,6 +11,7 @@ import Foundation
 class Park {
     var name: String
     var country: String
+    var confirmedPark: Bool = false
     
     init(named name: String, country: String) {
         self.name = name

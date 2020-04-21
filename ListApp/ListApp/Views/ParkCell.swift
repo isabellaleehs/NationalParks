@@ -13,6 +13,8 @@ class ParkCell: UITableViewCell {
     @IBOutlet weak var parkNameLabel: UILabel!
     @IBOutlet weak var parkCountryLabel: UILabel!
     
+    var park: Park?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

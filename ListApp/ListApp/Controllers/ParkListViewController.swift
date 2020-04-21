@@ -38,15 +38,23 @@ extension ParkListViewController: UITableViewDataSource {
         
         let currentPark = self.parks[indexPath.row]
         
+        cell.park = currentPark
         cell.parkNameLabel.text = currentPark.name
         cell.parkCountryLabel.text = currentPark.country
-        
+        cell.accessoryType = currentPark.confirmedPark ? .checkmark : .none
         return cell
     }
 }
 
 extension ParkListViewController: UITableViewDelegate {
     //MARK: Delegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = self.tableView.cellForRow(at: indexPath) as? ParkCell {
+            cell.park?.confirmedPark = true
+            cell.accessoryType = cell.park!.confirmedPark ? .checkmark : .none
+        }
+    }
     
 }
     
