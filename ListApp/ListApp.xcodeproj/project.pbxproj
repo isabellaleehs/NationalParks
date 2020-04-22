@@ -17,6 +17,7 @@
 		5E1558DB2448045C005DECD4 /* ListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1558DA2448045C005DECD4 /* ListAppTests.swift */; };
 		5E1558E62448045C005DECD4 /* ListAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1558E52448045C005DECD4 /* ListAppUITests.swift */; };
 		5E69077C24484E1900396898 /* ParkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69077B24484E1900396898 /* ParkCell.swift */; };
+		5E8F7BA024502312009B7996 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F7B9F24502312009B7996 /* DetailViewController.swift */; };
 		5E9392EB244852940060E13A /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9392EA244852940060E13A /* Park.swift */; };
 		5E9392ED2448552A0060E13A /* ParkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9392EC2448552A0060E13A /* ParkService.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		5E1558E52448045C005DECD4 /* ListAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAppUITests.swift; sourceTree = "<group>"; };
 		5E1558E72448045C005DECD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E69077B24484E1900396898 /* ParkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkCell.swift; sourceTree = "<group>"; };
+		5E8F7B9F24502312009B7996 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5E9392EA244852940060E13A /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 		5E9392EC2448552A0060E13A /* ParkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				5E1558C424480458005DECD4 /* ParkListViewController.swift */,
+				5E8F7B9F24502312009B7996 /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				5E9392ED2448552A0060E13A /* ParkService.swift in Sources */,
 				5E1558C124480458005DECD4 /* AppDelegate.swift in Sources */,
 				5E1558C324480458005DECD4 /* SceneDelegate.swift in Sources */,
+				5E8F7BA024502312009B7996 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

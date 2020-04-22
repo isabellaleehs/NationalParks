@@ -24,6 +24,17 @@ class ParkListViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard
+            let destination = segue.destination as? DetailViewController,
+            let selectedIndexPath = self.tableView.indexPathForSelectedRow,
+            let confirmedCell = self.tableView.cellForRow(at: selectedIndexPath) as? ParkCell
+            else { return }
+        
+        let confirmedPark = confirmedCell.park
+        destination.park = confirmedPark
+    }
 }
     
 extension ParkListViewController: UITableViewDataSource {
@@ -39,9 +50,7 @@ extension ParkListViewController: UITableViewDataSource {
         let currentPark = self.parks[indexPath.row]
         
         cell.park = currentPark
-        cell.parkNameLabel.text = currentPark.name
-        cell.parkCountryLabel.text = currentPark.country
-        cell.accessoryType = currentPark.confirmedPark ? .checkmark : .none
+        
         return cell
     }
 }
@@ -49,12 +58,15 @@ extension ParkListViewController: UITableViewDataSource {
 extension ParkListViewController: UITableViewDelegate {
     //MARK: Delegate
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = self.tableView.cellForRow(at: indexPath) as? ParkCell {
-            cell.park?.confirmedPark = true
-            cell.accessoryType = cell.park!.confirmedPark ? .checkmark : .none
-        }
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if
+//            let cell = self.tableView.cellForRow(at: indexPath) as? ParkCell,
+//            let confirmedPark = cell.park
+//        {
+//            confirmedPark.confirmedVisit = true
+//            cell.accessoryType = confirmedPark.confirmedVisit ? .checkmark : .none
+//        }
+//    }
     
 }
     

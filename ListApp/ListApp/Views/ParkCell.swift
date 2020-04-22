@@ -13,7 +13,13 @@ class ParkCell: UITableViewCell {
     @IBOutlet weak var parkNameLabel: UILabel!
     @IBOutlet weak var parkCountryLabel: UILabel!
     
-    var park: Park?
+    var park: Park? {
+        didSet {
+            self.parkNameLabel.text = park?.name
+            self.parkCountryLabel.text = park?.country
+            self.accessoryType = park!.confirmedVisit ? .checkmark : .none
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

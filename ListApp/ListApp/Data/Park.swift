@@ -8,10 +8,14 @@
 
 import Foundation
 
-class Park {
+class Park: CustomDebugStringConvertible {
+    var debugDescription: String {
+        return "Park(name: \(self.name), country: \(self.country))"
+    }
+    
     var name: String
     var country: String
-    var confirmedPark: Bool = false
+    var confirmedVisit: Bool = false
     
     init(named name: String, country: String) {
         self.name = name
