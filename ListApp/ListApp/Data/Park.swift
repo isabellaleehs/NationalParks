@@ -15,10 +15,12 @@ class Park: CustomDebugStringConvertible {
     
     var name: String
     var country: String
+    var imageUrl: String
     var confirmedVisit: Bool = false
     
-    init(named name: String, country: String) {
+    init(named name: String, country: String, imageUrl: String) {
         self.name = name
         self.country = country
+        self.imageUrl = imageUrl
     }
 }

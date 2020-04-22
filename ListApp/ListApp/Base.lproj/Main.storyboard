@@ -61,6 +61,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="parkCountryLabel" destination="O07-Fj-Mcb" id="WpP-Kh-oBl"/>
+                                            <outlet property="parkImageView" destination="VS7-dK-ZcJ" id="GoB-Z8-Eso"/>
                                             <outlet property="parkNameLabel" destination="ND8-3g-pvq" id="vQD-2Q-6JR"/>
                                             <segue destination="7LU-04-GiJ" kind="show" id="Kj3-15-tRC"/>
                                         </connections>

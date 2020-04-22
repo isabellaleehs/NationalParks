@@ -12,12 +12,20 @@ class ParkCell: UITableViewCell {
     
     @IBOutlet weak var parkNameLabel: UILabel!
     @IBOutlet weak var parkCountryLabel: UILabel!
+    @IBOutlet weak var parkImageView: UIImageView!
     
     var park: Park? {
         didSet {
             self.parkNameLabel.text = park?.name
             self.parkCountryLabel.text = park?.country
             self.accessoryType = park!.confirmedVisit ? .checkmark : .none
+            DispatchQueue.global(qos: .userInitiated).async {
+                let parkImageData = NSData(contentsOf: URL(string: self.park!.imageUrl)!)
+                DispatchQueue.main.async {
+                    self.parkImageView.image = UIImage(data: parkImageData as! Data)
+                    self.parkImageView.layer.cornerRadius = self.parkImageView.frame.width / 2
+                }
+            }
         }
     }
     
