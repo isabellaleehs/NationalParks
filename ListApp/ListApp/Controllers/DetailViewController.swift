@@ -10,14 +10,30 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var parkImageViewBig: UIImageView!
+    @IBOutlet weak var parkLabel: UILabel!
+    @IBOutlet weak var rankLabel: UILabel!
+    @IBOutlet weak var visitorsPerYearLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     var park: Park!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(park)
+        print(park!)
 
         // Do any additional setup after loading the view.
+        DispatchQueue.global(qos: .userInitiated).async {
+            let parkImageData = NSData(contentsOf: URL(string: self.park!.imageUrl)!)
+            DispatchQueue.main.async {
+                self.parkImageViewBig.image = UIImage(data: parkImageData! as Data)
+            }
+        }
+        self.parkLabel.text = park?.name
+        self.rankLabel.text = "1"
+        self.visitorsPerYearLabel.text = "1000"
+        self.descriptionLabel.text = "Interesting park. Very interesting park with lots of features."
     }
     
 

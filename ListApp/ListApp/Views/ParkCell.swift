@@ -22,7 +22,7 @@ class ParkCell: UITableViewCell {
             DispatchQueue.global(qos: .userInitiated).async {
                 let parkImageData = NSData(contentsOf: URL(string: self.park!.imageUrl)!)
                 DispatchQueue.main.async {
-                    self.parkImageView.image = UIImage(data: parkImageData as! Data)
+                    self.parkImageView.image = UIImage(data: parkImageData! as Data)
                     self.parkImageView.layer.cornerRadius = self.parkImageView.frame.width / 2
                 }
             }
