@@ -31,9 +31,9 @@ class DetailViewController: UIViewController {
             }
         }
         self.parkLabel.text = park?.name
-        self.rankLabel.text = "1"
-        self.visitorsPerYearLabel.text = "1000"
-        self.descriptionLabel.text = "Interesting park. Very interesting park with lots of features."
+        self.rankLabel.text = String(park.rank)
+        self.visitorsPerYearLabel.text = park?.visitorsPerYear
+        self.descriptionLabel.text = park?.description
     }
     
 
