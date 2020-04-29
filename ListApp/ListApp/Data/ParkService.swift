@@ -8,29 +8,37 @@
 
 import Foundation
 
+enum ParkCallingError: Error {
+    case problemGeneratingURL
+    case problemGettingDataFromAPI
+    case problemDecodingData
+}
+
 class ParkService {
-    func getParks() -> [Park] {
-        return [
-                Park(named: "Yellowstone National Park", country: "United States", imageUrl: "https://www.uponarriving.com/wp-content/uploads/2019/07/Yellowstone-National-Park-640x410.jpg", rank: 1, visitorsPerYear: "4.02M", description: "Yellowstone features dramatic canyons, alpine rivers, lush forests, hot springs and gushing geysers, including its most famous, Old Faithful. It's also home to hundreds of animal species, including bears, wolves, bison, elk and antelope."),
-                Park(named: "Yosemite National Park", country: "United States", imageUrl: "https://www.tripsavvy.com/thmb/thX3YIj4_UVrTv8K02y9eETO_yc=/3424x2568/smart/filters:no_upscale()/el-capitan-in-yosemite-valley-yosemite-national-park-california-usa-683750057-58ee408d5f9b582c4daf279a.jpg", rank: 2, visitorsPerYear: "4M", description: "Yosemite National Park is in California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoia trees, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome."),
-                Park(named: "Glacier National Park", country: "United States", imageUrl: "https://www.wpi.edu/sites/default/files/Montana-Glacier-National-Park-Mountains-Cracker-Lake-1733309.jpg", rank: 3, visitorsPerYear: "2.2M", description: "Glacier National Park is a 1,583-sq.-mi. wilderness area in Montana's Rocky Mountains, with glacier-carved peaks and valleys running to the Canadian border."),
-                Park(named: "Grand Canyon National Park", country: "United States", imageUrl: "https://www.tripsavvy.com/thmb/KyPHyyx2O9y2ZOSeNNl5qdPRqJ4=/2119x1415/filters:fill(auto,1)/GrandCanyonNationalPark-d97b78edfff14d52bca71f5962ac2af5.jpg", rank: 4, visitorsPerYear: "5.97M", description: "Grand Canyon National Park, in Arizona, is home to much of the immense Grand Canyon, with its layered bands of red rock revealing millions of years of geological history. Viewpoints include Mather Point, Yavapai Observation Station and architect Mary Colter’s Lookout Studio and her Desert View Watchtower."),
-                Park(named: "Serengeti National Park", country: "Tanzania", imageUrl: "https://www.serengetiparktanzania.com/wp-content/uploads/2019/04/10-top-things-to-do-in-serengeti-750x314.jpg", rank: 5, visitorsPerYear: "200K", description: "Tanzania's Serengeti National Park is the world-renowned home of the great migration. Every year, 2 million wildebeests and hundreds of thousands of zebras and gazelles cross the park in search of food and breeding grounds."),
-                Park(named: "Zion National Park", country: "United States", imageUrl: "https://www.outsideonline.com/sites/default/files/styles/full-page/public/2019/12/11/zion-national-park_h.jpg?itok=ijAR7GYT", rank: 6, visitorsPerYear: "4.3M", description: "Most visitors travel to Utah's first national park to see the stunning Zion Canyon, but the park's trails are just as impressive. Experienced hikers should traverse the sky-high Angels Landing (go early in the morning for fewer crowds) or brave the Narrows, which is the slimmest section of Zion Canyon."),
-                Park(named: "Jasper National Park", country: "Canada", imageUrl: "https://lp-cms-production.imgix.net/2019-06/79941051.jpg?fit=crop&q=40&sharp=10&vib=20&auto=format&ixlib=react-8.6.4", rank: 7, visitorsPerYear: "2M", description: "The largest national park in the Canadian Rockies, Jasper is wild in every sense of the word. Its landscape covers an expansive region of rugged backcountry trails and mountainous terrain juxtaposed against fragile protected ecosystems as well as the world-renowned Columbia Icefield."),
-                Park(named: "Hawai'i Volcanoes National Park", country: "United States", imageUrl: "https://www.gannett-cdn.com/-mm-/af75a4a62d29af0189a147a6a66d8d1b18073da9/c=0-104-2048-1261/local/-/media/2016/10/05/USATODAY/USATODAY/636112853233965211-test.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp", rank: 8, visitorsPerYear: "2M", description: "Hawaii Volcanoes National Park is on Hawaii Island (the Big Island). At its heart are the Kīlauea and Mauna Loa active volcanoes."),
-                Park(named: "Torres del Paine National Park", country: "Chile", imageUrl: "https://www.nationalgeographic.com/content/dam/travel/2017-digital/torres-del-paine-patagonia/torres-del-paine-national-park-patagonia.jpg", rank: 9, visitorsPerYear: "252K", description: "Torres del Paine National Park, in Chile’s Patagonia region, is known for its soaring mountains, bright blue icebergs that cleave from glaciers and golden pampas (grasslands) that shelter rare wildlife such as llama-like guanacos."),
-                Park(named: "Kruger National Park", country: "South Africa", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Kruger_Zebra.JPG/1200px-Kruger_Zebra.JPG", rank: 10, visitorsPerYear: "1.8M", description: "Kruger National Park, in northeastern South Africa, is one of Africa’s largest game reserves. Its high density of wild animals includes the Big 5: lions, leopards, rhinos, elephants and buffalos."),
-                Park(named: "Grand Teton National Park", country: "United States", imageUrl: "https://www.nationalgeographic.com/content/dam/expeditions/destinations/north-america/land/Yellowstone-and-Grand-Teton-National-Park/yellowstone-grand-teton-np.ngsversion.1545338598661.adapt.1900.1.jpg", rank: 11, visitorsPerYear: "3.41M", description: "At approximately 310,000 acres (480 sq mi; 130,000 ha; 1,300 km2), Grand Teton National Park includes the major peaks of the 40-mile-long (64 km) Teton Range as well as most of the northern sections of the valley known as Jackson Hole. "),
-                Park(named: "Guilin and Lijiang River National Park", country: "China", imageUrl: "https://4389am1s8ztx36qo1i37bs17-wpengine.netdna-ssl.com/wp-content/uploads/NPT-National-Park-Guilin-Lijiang-River_national-park-slider-china-guilin-lijiang-river01.jpg", rank: 12, visitorsPerYear: "2.5M", description: "Southern China's Guilin and Lijiang River National Park stuns visitors with its misty peaks and tranquil river scenes. You'll encounter jagged limestone-formed karst hills, as well as caves and cliffs across the park that have inspired Chinese artists and poets throughout history."),
-                Park(named: "Rocky Mountain National Park", country: "United States", imageUrl: "https://www.outtherecolorado.com/wp-content/uploads/2019/06/iStock-996409334-1024x683.jpg", rank: 13, visitorsPerYear: "4.67M", description: "Spanning the Continental Divide, this 265,600-acre national park in Colorado is home to more than 300 miles of hiking trails and the 48-mile Trail Ridge Road, which reaches an elevation of more than 12,000 feet."),
-                Park(named: "Uluru-Kata Tjuta National Park", country: "Australia", imageUrl: "https://d3hne3c382ip58.cloudfront.net/files/uploads/bookmundi/resized/cmsfeatured/uluru-rock-1511763600-785X440.jpg", rank: 14, visitorsPerYear: "500K", description: "Located in central Australia, Uluru-Kata Tjuta National Park is a UNESCO World Heritage Site that features stunning geological formations across more than 327,000 acres."),
-                Park(named: "Fiordland National Park", country: "New Zealand", imageUrl: "https://www.newzealand.com/assets/Tourism-NZ/Fiordland/56113b64e7/img-1536379062-737-23013-0C766224-0B3D-BC30-B430C77F83D04968__aWxvdmVrZWxseQo_FocalPointCropWzQyNyw2NDAsNDcsNDAsODUsImpwZyIsNjUsMi41XQ.jpg", rank: 15, visitorsPerYear: "132K", description: "New Zealand's largest national park is awash with fjords so stunning, they'll put Norway's famous natural attractions to shame. The fjords were carved by glaciers and can be found at multiple points in the park, though the most popular places to see them are Milford and Doubtful sounds."),
-                Park(named: "Arches National Park", country: "United States", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Delicate_arch_sunset.jpg", rank: 16, visitorsPerYear: "1.65M", description: "Arches National Park lies north of Moab in the state of Utah. Bordered by the Colorado River in the southeast, it’s known as the site of more than 2,000 natural sandstone arches, such as the massive, red-hued Delicate Arch in the east."),
-                Park(named: "Sequoia National Park", country: "United States", imageUrl: "https://www.pewtrusts.org/-/media/post-launch-images/2017/12/sequoia_2/sequoia_2_16x9.jpg", rank: 17, visitorsPerYear: "1.24M", description: "Vacationers travel to this California park on the banks of the Sierra Nevada mountain range for photo ops of the striking, massive sequoias – the largest trees in the world. If you're tacking on a stop at Sequoia National Park during your next West Coast road trip, be sure to visit the Giant Forest grove."),
-                Park(named: "Bryce Canyon National Park", country: "United States", imageUrl: "https://www.nationalgeographic.com/content/dam/travel/2019-digital/bryce-canyon-national-park-utah/01-bryce-canyon-national-park-utah.jpg", rank: 18, visitorsPerYear: "2.6M", description: "Bryce Canyon National Park, a sprawling reserve in southern Utah, is known for crimson-colored hoodoos, which are spire-shaped rock formations. The park’s main road leads past the expansive Bryce Amphitheater, a hoodoo-filled depression lying below the Rim Trail hiking path."),
-                Park(named: "Swiss National Park", country: "Switzerland", imageUrl: "https://www.myswitzerland.com/-/media/dam/resources/places/s/w/swiss%20national%20park/images%20summer/23858_32001800.jpeg", rank: 19, visitorsPerYear: "150K", description: "The Swiss National Park is located in the Western Rhaetian Alps, in eastern Switzerland. It is part of the worldwide UNESCO Biosphere Reserve."),
-                Park(named: "Olympic National Park", country: "United States", imageUrl: "https://media.tacdn.com/media/attractions-splice-spp-674x446/07/18/f3/07.jpg", rank: 20, visitorsPerYear: "3.25M", description: "Olympic National Park is on Washington's Olympic Peninsula in the Pacific Northwest. The park sprawls across several different ecosystems, from the dramatic peaks of the Olympic Mountains to old-growth forests and the Pacific coastline.")
-                ]
-    }
+    private let urlString = "http://www.mocky.io/v2/5ea8f8ac2d000097883a41e2"
+    
+    func getParks(completion: @escaping ([Park]?, Error?) -> ()) {
+            guard let url = URL(string: self.urlString) else {
+                DispatchQueue.main.async { completion(nil, ParkCallingError.problemGeneratingURL) }
+                return
+        }
+                
+            let request = URLRequest(url: url)
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    DispatchQueue.main.async { completion(nil, ParkCallingError.problemGettingDataFromAPI) }
+                    return
+                }
+                
+                do {
+                    let parkResult = try JSONDecoder().decode(ParkResult.self, from: data)
+                    DispatchQueue.main.async { completion(parkResult.parks, nil) }
+                } catch (let error) {
+                    print(error)
+                    DispatchQueue.main.async { completion(nil, ParkCallingError.problemDecodingData) }
+                }
+                                                        
+            }
+            task.resume()
+        }
 }

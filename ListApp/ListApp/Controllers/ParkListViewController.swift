@@ -19,8 +19,13 @@ class ParkListViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.parkService = ParkService()
-        self.parks = self.parkService.getParks()
-
+        self.parkService.getParks(completion: { parks, error in
+            guard let parks = parks, error == nil else {
+                return
+            }
+            self.parks = parks
+            self.tableView.reloadData()
+        })
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Park: CustomDebugStringConvertible {
+class Park: CustomDebugStringConvertible, Codable {
     var debugDescription: String {
         return "Park(name: \(self.name), country: \(self.country))"
     }
@@ -21,6 +21,10 @@ class Park: CustomDebugStringConvertible {
     var description: String
     var confirmedVisit: Bool = false
     
+    private enum CodingKeys: String, CodingKey {
+        case name, country, imageUrl, rank, visitorsPerYear, description
+    }
+    
     init(named name: String, country: String, imageUrl: String, rank: Int, visitorsPerYear: String, description: String) {
         self.name = name
         self.country = country
@@ -29,4 +33,8 @@ class Park: CustomDebugStringConvertible {
         self.visitorsPerYear = visitorsPerYear
         self.description = description
     }
+}
+
+struct ParkResult: Codable {
+    let parks: [Park]
 }
