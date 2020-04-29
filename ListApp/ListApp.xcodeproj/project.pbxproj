@@ -20,6 +20,9 @@
 		5E8F7BA024502312009B7996 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F7B9F24502312009B7996 /* DetailViewController.swift */; };
 		5E9392EB244852940060E13A /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9392EA244852940060E13A /* Park.swift */; };
 		5E9392ED2448552A0060E13A /* ParkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9392EC2448552A0060E13A /* ParkService.swift */; };
+		5EC2214B245934F1009007A1 /* ParkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2214A245934F1009007A1 /* ParkTest.swift */; };
+		5EC2214D245942F2009007A1 /* ParkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2214C245942F2009007A1 /* ParkServiceTests.swift */; };
+		5EC2215124594F03009007A1 /* ParkListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2215024594F03009007A1 /* ParkListViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		5E8F7B9F24502312009B7996 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5E9392EA244852940060E13A /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 		5E9392EC2448552A0060E13A /* ParkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkService.swift; sourceTree = "<group>"; };
+		5EC2214A245934F1009007A1 /* ParkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkTest.swift; sourceTree = "<group>"; };
+		5EC2214C245942F2009007A1 /* ParkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkServiceTests.swift; sourceTree = "<group>"; };
+		5EC2215024594F03009007A1 /* ParkListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkListViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +134,9 @@
 			children = (
 				5E1558DA2448045C005DECD4 /* ListAppTests.swift */,
 				5E1558DC2448045C005DECD4 /* Info.plist */,
+				5EC2214A245934F1009007A1 /* ParkTest.swift */,
+				5EC2214C245942F2009007A1 /* ParkServiceTests.swift */,
+				5EC2215024594F03009007A1 /* ParkListViewControllerTests.swift */,
 			);
 			path = ListAppTests;
 			sourceTree = "<group>";
@@ -313,7 +322,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EC2215124594F03009007A1 /* ParkListViewControllerTests.swift in Sources */,
 				5E1558DB2448045C005DECD4 /* ListAppTests.swift in Sources */,
+				5EC2214D245942F2009007A1 /* ParkServiceTests.swift in Sources */,
+				5EC2214B245934F1009007A1 /* ParkTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,15 +19,21 @@ class ParkListViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.parkService = ParkService()
-        self.parkService.getParks(completion: { parks, error in
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        guard let confirmedService = self.parkService else { return }
+        
+        confirmedService.getParks(completion: { parks, error in
             guard let parks = parks, error == nil else {
                 return
             }
             self.parks = parks
             self.tableView.reloadData()
         })
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
