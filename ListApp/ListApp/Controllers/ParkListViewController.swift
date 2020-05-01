@@ -17,6 +17,13 @@ class ParkListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        if #available(iOS 10.0, *) {
+            self.tableView.refreshControl = refreshControl
+        } else {
+            self.tableView.backgroundView = refreshControl
+        }
         
         self.parkService = ParkService()
         
@@ -24,13 +31,44 @@ class ParkListViewController: UIViewController {
         self.tableView.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        guard let confirmedService = self.parkService else { return }
-        
-        confirmedService.getParks(completion: { parks, error in
+    @objc func refresh(_ refreshControl: UIRefreshControl) {
+        guard let confirmedVisit = self.parkService else { return }
+
+        confirmedVisit.getParks(completion: { parks, error in
             guard let parks = parks, error == nil else {
+                let alertController = UIAlertController(title: "Alert", message: error?.localizedDescription, preferredStyle: .alert)
+
+                // Create OK button
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                    print("Ok");
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true, completion:nil)
                 return
             }
+
+            self.parks = parks
+            self.tableView.reloadData()
+        })
+        refreshControl.endRefreshing()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        guard let confirmedVisit = self.parkService else { return }
+        
+        confirmedVisit.getParks(completion: { parks, error in
+            guard let parks = parks, error == nil else {
+                let alertController = UIAlertController(title: "Alert", message: error?.localizedDescription, preferredStyle: .alert)
+                
+                // Create OK button
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                    print("Ok");
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true, completion:nil)
+                return
+            }
+            
             self.parks = parks
             self.tableView.reloadData()
         })
