@@ -39,7 +39,7 @@ extension ParkCallingError: LocalizedError {
 }
 
 class ParkService {
-    private let urlString = "http://www.mocky.io/v2/5ea8f8ac2d000097883a41e2"
+    private let urlString = "http://www.mocky.io/v2/5ea8f8ac2d000097883a41e2" //actual data
 //    private let urlString = "http://www.mocky.io/v2/5eab8b7e33000028007608cf" //empty
     let reachability: Reachability = Reachability()
     
