@@ -24,6 +24,7 @@
 		5EC2214B245934F1009007A1 /* ParkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2214A245934F1009007A1 /* ParkTest.swift */; };
 		5EC2214D245942F2009007A1 /* ParkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2214C245942F2009007A1 /* ParkServiceTests.swift */; };
 		5EC2215124594F03009007A1 /* ParkListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2215024594F03009007A1 /* ParkListViewControllerTests.swift */; };
+		5ECB6B5E2461A3EB00CDAB63 /* mountain.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ECB6B5D2461A3EA00CDAB63 /* mountain.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		5EC2214A245934F1009007A1 /* ParkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkTest.swift; sourceTree = "<group>"; };
 		5EC2214C245942F2009007A1 /* ParkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkServiceTests.swift; sourceTree = "<group>"; };
 		5EC2215024594F03009007A1 /* ParkListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkListViewControllerTests.swift; sourceTree = "<group>"; };
+		5ECB6B5D2461A3EA00CDAB63 /* mountain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mountain.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				5E1558CC2448045B005DECD4 /* Assets.xcassets */,
 				5E1558CE2448045B005DECD4 /* LaunchScreen.storyboard */,
 				5E1558D12448045B005DECD4 /* Info.plist */,
+				5ECB6B5D2461A3EA00CDAB63 /* mountain.png */,
 				5E1558C924480458005DECD4 /* ListApp.xcdatamodeld */,
 				5EA01D20245AF2B5009555FA /* Reachability.swift */,
 			);
@@ -285,6 +288,7 @@
 			files = (
 				5E1558D02448045B005DECD4 /* LaunchScreen.storyboard in Resources */,
 				5E1558CD2448045B005DECD4 /* Assets.xcassets in Resources */,
+				5ECB6B5E2461A3EB00CDAB63 /* mountain.png in Resources */,
 				5E1558C824480458005DECD4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
