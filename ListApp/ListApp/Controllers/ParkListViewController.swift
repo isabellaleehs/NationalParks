@@ -13,6 +13,14 @@ class ParkListViewController: UIViewController {
     
     var parks: [Park] = []
     var parkService: ParkService!
+    var indicator = UIActivityIndicatorView()
+    
+    func activityIndicator() {
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        indicator.style = UIActivityIndicatorView.Style.large
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +37,15 @@ class ParkListViewController: UIViewController {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
     }
     
     @objc func refresh(_ refreshControl: UIRefreshControl) {
+        startIndicator()
         guard let confirmedVisit = self.parkService else { return }
 
         confirmedVisit.getParks(completion: { parks, error in
+            print("getting")
             guard let parks = parks, error == nil else {
                 let alertController = UIAlertController(title: "Alert", message: error?.localizedDescription, preferredStyle: .alert)
 
@@ -44,19 +55,28 @@ class ParkListViewController: UIViewController {
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true, completion:nil)
+                
+                // If there's an error, stop animating
+                self.stopIndicator()
+                
                 return
             }
 
             self.parks = parks
             self.tableView.reloadData()
+            
+            // If no error, stop animating after tableView is loaded
+            self.stopIndicator()
         })
         refreshControl.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        startIndicator()
         guard let confirmedVisit = self.parkService else { return }
         
         confirmedVisit.getParks(completion: { parks, error in
+            print("getting")
             guard let parks = parks, error == nil else {
                 let alertController = UIAlertController(title: "Alert", message: error?.localizedDescription, preferredStyle: .alert)
                 
@@ -66,12 +86,36 @@ class ParkListViewController: UIViewController {
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true, completion:nil)
+                
+                // If there's an error, stop animating
+                self.stopIndicator()
+
                 return
             }
             
             self.parks = parks
             self.tableView.reloadData()
+            
+            // If no error, stop animating after tableView is loaded
+            self.stopIndicator()
+//            let delay = 500 // milliseconds
+//            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay)) {
+//                self.stopIndicator()
+//            }
         })
+    }
+    
+    func startIndicator() -> () {
+        print("starting")
+        activityIndicator()
+        indicator.startAnimating()
+        indicator.backgroundColor = .white
+    }
+    
+    func stopIndicator() -> () {
+        print("stopping")
+        self.indicator.stopAnimating()
+        self.indicator.hidesWhenStopped = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
