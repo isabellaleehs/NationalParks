@@ -40,7 +40,7 @@ extension ParkCallingError: LocalizedError {
 
 class ParkService {
     private let urlString = "http://www.mocky.io/v2/5ea8f8ac2d000097883a41e2" //actual data
-//    private let urlString = "http://www.mocky.io/v2/5eab8b7e33000028007608cf" //empty
+//    private let urlString = "http://www.mocky.io/v2/5ebbf5f82e00004b009f4071" //empty
     let reachability: Reachability = Reachability()
     
     func getParks(completion: @escaping ([Park]?, Error?) -> ()) {
@@ -69,6 +69,12 @@ class ParkService {
                                 
                 do {
                     let parkResult = try JSONDecoder().decode(ParkResult.self, from: data)
+                    guard parkResult.parks.count > 0 else {
+                        DispatchQueue.main.async {
+                            completion(nil, ParkCallingError.problemArrayEmpty)
+                        }
+                        return
+                    }
                     DispatchQueue.main.async { completion(parkResult.parks, nil) }
                 } catch (let error) {
                     print(error)
